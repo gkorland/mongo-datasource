@@ -94,7 +94,7 @@ public class SpaceDocumentMapperImpl implements SpaceDocumentMapper<DBObject> {
 	}
 
 	private byte type(Object value) {
-		Byte type = typeCodes.get((value instanceof Class<?>) ? value : value
+		Byte type = typeCodes.get((value instanceof Class<?>) ? (Class<?>)value : value
 				.getClass());
 		if (type == null) {
 			if (value.getClass().isEnum())
@@ -274,11 +274,9 @@ public class SpaceDocumentMapperImpl implements SpaceDocumentMapper<DBObject> {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private Map toMap(Class<?> type, BasicDBList value) {
 
-		Map map = null;
-
 		try {
 
-			map = (Map) repository.getConstructor(type).newInstance();
+            Map map = (Map) repository.getConstructor(type).newInstance();
 
 			for (int i = 1; i < value.size(); i += 2) {
 				Object key = fromDBObject(value.get(i));
@@ -325,15 +323,15 @@ public class SpaceDocumentMapperImpl implements SpaceDocumentMapper<DBObject> {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private Collection toCollection(Class<?> type, BasicDBList value) {
 
-		Collection collection = null;
-
 		try {
-			collection = (Collection) repository.getConstructor(type)
+            Collection collection = (Collection) repository.getConstructor(type)
 					.newInstance();
 
 			for (int i = 1; i < value.size(); i++) {
 				collection.add(fromDBObject(value.get(i)));
 			}
+
+            return collection;
 
 		} catch (InvocationTargetException e) {
 			throw new SpaceMongoException(
@@ -349,7 +347,7 @@ public class SpaceDocumentMapperImpl implements SpaceDocumentMapper<DBObject> {
 							+ type.getName(), e);
 		}
 
-		return collection;
+
 	}
 
 	public Class<?> getClassFor(String type) {

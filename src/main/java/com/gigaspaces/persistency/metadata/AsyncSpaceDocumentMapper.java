@@ -102,7 +102,7 @@ public class AsyncSpaceDocumentMapper implements SpaceDocumentMapper<Document> {
 	}
 
 	private byte type(Object value) {
-		Byte type = typeCodes.get((value instanceof Class<?>) ? value : value
+		Byte type = typeCodes.get((value instanceof Class<?>) ? (Class<?>)value : value
 				.getClass());
 		if (type == null) {
 			if (value.getClass().isEnum())
