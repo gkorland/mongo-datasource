@@ -539,7 +539,7 @@ public class SpaceDocumentMapperImpl implements SpaceDocumentMapper<DBObject> {
 		else if (Character.class.getName().equals(type))
 			return toCharacter(val);
 
-		throw new IllegalArgumentException("unkown value: " + value);
+		throw new IllegalArgumentException("unknown value: " + value);
 	}
 
 	private DBObject toSpectialType(Object property) {

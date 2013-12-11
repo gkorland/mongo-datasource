@@ -594,7 +594,7 @@ public class AsyncSpaceDocumentMapper implements SpaceDocumentMapper<Document> {
 		else if (Character.class.getName().equals(type))
 			return toCharacter(val);
 
-		throw new IllegalArgumentException("unkown value: " + value);
+		throw new IllegalArgumentException("unknown value: " + value);
 	}
 
 	private Document toSpectialType(Object property) {

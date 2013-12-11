@@ -21,10 +21,10 @@ public class EmbeddedMongoController {
 
 			MongodStarter starter = MongodStarter.getDefaultInstance();
 
-			MongodExecutable mognoExecutable = starter
+			MongodExecutable mongoExecutable = starter
 					.prepare(new MongodConfig(Version.Main.PRODUCTION, _port, false));
 
-			mongodProcess = mognoExecutable.start();
+			mongodProcess = mongoExecutable.start();
 
 			client = new MongoClient(LOCALHOST, _port);
 

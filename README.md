@@ -7,7 +7,7 @@ Prerequisites
 =============
 * [MongoDB](http://www.mongodb.org/)
   * [Download](http://www.mongodb.org/downloads) and follow the [installation instructions](http://docs.mongodb.org/manual/installation/)
-  * Create environment variable `MONGO_HOME` = `mongo installtion directory`
+  * Create environment variable `MONGO_HOME` = `mongo installation directory`
   * Add `MONGO_HOME\bin` to `PATH` environment variable
 
 Build
