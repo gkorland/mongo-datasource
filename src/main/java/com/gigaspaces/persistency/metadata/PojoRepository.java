@@ -38,7 +38,7 @@ public class PojoRepository {
 
 	private static final ProcedureCache procedureCache = new ProcedureCache();
 
-	public PojoTypeDescriptor introcpect(Class<?> type) {
+	public PojoTypeDescriptor introspect(Class<?> type) {
 		if (type == null)
 			throw new IllegalArgumentException("type can not be null");
 
@@ -80,7 +80,7 @@ public class PojoRepository {
 		PojoTypeDescriptor descriptor = pojoTypeProcedure.get(type.getName());
 
 		if (descriptor == null)
-			descriptor = introcpect(type);
+			descriptor = introspect(type);
 
 		return descriptor;
 	}

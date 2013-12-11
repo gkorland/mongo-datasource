@@ -53,8 +53,8 @@ public class PojoRepositoryTest {
 	public void before() {
 		repository = new PojoRepository();
 
-		repository.introcpect(PojoA.class);
-		repository.introcpect(PojoB.class);
+		repository.introspect(PojoA.class);
+		repository.introspect(PojoB.class);
 
 	}
 
